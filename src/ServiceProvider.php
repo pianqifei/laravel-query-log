@@ -35,7 +35,7 @@ class ServiceProvider extends LaravelServiceProvider
             $realSql = vsprintf($sqlWithPlaceholders, array_map([$pdo, 'quote'], $bindings));
             $duration = $this->formatDuration($query->time / 1000);
 
-            Log::chnall('query')->debug(sprintf('[%s] %s | %s: %s', $duration, $realSql, request()->method(), request()->getRequestUri()));
+            Log::channel('query')->debug(sprintf('[%s] %s | %s: %s', $duration, $realSql, request()->method(), request()->getRequestUri()));
         });
     }
 
