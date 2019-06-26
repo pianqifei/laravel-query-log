@@ -1,0 +1,25 @@
+{
+    "name": "pianqifei/laravel-query-logger",
+    "description": "A dev tool to log all queries for laravel application.",
+    "type": "library",
+    "require": {
+        "laravel/framework": ">5.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pqf\\LaravelQueryLogger\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pianqifei",
+            "email": "1726441799@qq.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": ["Pqf\\LaravelQueryLogger\\ServiceProvider"]
+        }
+    }
+}
