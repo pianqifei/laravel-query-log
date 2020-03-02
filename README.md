@@ -8,7 +8,7 @@
 $ composer require pianqifei/laravel-query-logger --dev -vvv
 ```
 # 
-php artisan vendor:publish --provider="Pqf\Smscode\SmsServieProvider" 
+php artisan vendor:publish --provider="Pqf\LaravelQueryLogger" 
 发布querylog配置文件 自定义日志记录开关和日志频道
 
 Laravel Query Logger will be enabled when `QUERY_LOG` is `true`.
