@@ -23,10 +23,10 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function boot()
     {
-        if (!$this->app['config']->get('app.debug')) {
+        $this->publishes([__DIR__.'/../config/querylog.php' => config_path('querylog.php')]);
+        if (!$this->app['config']->get('querylog.log_enable')) {
             return;
         }
-
         DB::listen(function (QueryExecuted $query) {
             $sqlWithPlaceholders = str_replace(['%', '?'], ['%%', '%s'], $query->sql);
 
@@ -44,12 +44,12 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function register()
     {
-        $query_channel=[
+        $query_channel = config('querylog.log_channel',[
             'driver' => 'daily',
             'path' => storage_path('logs/query.log'),
             'level' => 'debug',
             'days' => 14,
-        ];
+        ]);
         config(['logging.channels.query' => $query_channel]);
     }
 
